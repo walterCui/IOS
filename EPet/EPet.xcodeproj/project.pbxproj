@@ -15,8 +15,8 @@
 		D1284F7219BE97CA009DAF5F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1284F7119BE97CA009DAF5F /* Security.framework */; };
 		D1284F7419BE9818009DAF5F /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D1284F7319BE9818009DAF5F /* mapapi.bundle */; };
 		D12B9C8619C9A06B00B71373 /* EPetPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D12B9C8519C9A06B00B71373 /* EPetPageView.m */; };
-		D12E029019BFDF7A005E83D1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12E028E19BFDF7A005E83D1 /* RootViewController.m */; };
-		D12E029119BFDF7A005E83D1 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12E028F19BFDF7A005E83D1 /* RootViewController.xib */; };
+		D12E029019BFDF7A005E83D1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D12E028E19BFDF7A005E83D1 /* HomeViewController.m */; };
+		D12E029119BFDF7A005E83D1 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12E028F19BFDF7A005E83D1 /* HomeViewController.xib */; };
 		D15A44E619D18502000658EE /* EPetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D15A44E419D18502000658EE /* EPetTableViewController.m */; };
 		D15A44E719D18502000658EE /* EPetTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15A44E519D18502000658EE /* EPetTableViewController.xib */; };
 		D15D437D19C02969009727AD /* EPetAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D15D437C19C02969009727AD /* EPetAppDelegate.m */; };
@@ -50,6 +50,10 @@
 		D174B1D819B75B4900A96C4A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D174B1D619B75B4900A96C4A /* InfoPlist.strings */; };
 		D174B1DA19B75B4900A96C4A /* EPetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D174B1D919B75B4900A96C4A /* EPetTests.m */; };
 		D174B1E619B75CA900A96C4A /* NetServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D174B1E519B75CA900A96C4A /* NetServer.cpp */; };
+		D1805E8E19E7DE36009505B1 /* Checkbox_off.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D1805E8C19E7DE36009505B1 /* Checkbox_off.PNG */; };
+		D1805E8F19E7DE36009505B1 /* Checkbox_on.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D1805E8D19E7DE36009505B1 /* Checkbox_on.PNG */; };
+		D1805E9319E7F0CB009505B1 /* EPetRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1805E9119E7F0CB009505B1 /* EPetRootViewController.m */; };
+		D1805E9419E7F0CB009505B1 /* EPetRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1805E9219E7F0CB009505B1 /* EPetRootViewController.xib */; };
 		D1AFCDE219D4FB70006B77A4 /* EPetSeniorserverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AFCDE119D4FB70006B77A4 /* EPetSeniorserverViewController.m */; };
 		D1AFCDEA19D504CF006B77A4 /* NetBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AFCDE819D504CF006B77A4 /* NetBase.cpp */; };
 		D1AFCDED19D514B9006B77A4 /* NetClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AFCDEB19D514B9006B77A4 /* NetClient.cpp */; };
@@ -142,9 +146,9 @@
 		D1284F7319BE9818009DAF5F /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMap_IOSSDK_v2.4.1_Lib/mapapi.bundle; sourceTree = "<group>"; };
 		D12B9C8419C9A06B00B71373 /* EPetPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetPageView.h; sourceTree = "<group>"; };
 		D12B9C8519C9A06B00B71373 /* EPetPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetPageView.m; sourceTree = "<group>"; };
-		D12E028D19BFDF7A005E83D1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		D12E028E19BFDF7A005E83D1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		D12E028F19BFDF7A005E83D1 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		D12E028D19BFDF7A005E83D1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D12E028E19BFDF7A005E83D1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D12E028F19BFDF7A005E83D1 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D15A44E319D18502000658EE /* EPetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetTableViewController.h; sourceTree = "<group>"; };
 		D15A44E419D18502000658EE /* EPetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetTableViewController.m; sourceTree = "<group>"; };
 		D15A44E519D18502000658EE /* EPetTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPetTableViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +193,11 @@
 		D174B1D919B75B4900A96C4A /* EPetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EPetTests.m; sourceTree = "<group>"; };
 		D174B1E419B75C1D00A96C4A /* NetServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetServer.h; sourceTree = "<group>"; };
 		D174B1E519B75CA900A96C4A /* NetServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetServer.cpp; sourceTree = "<group>"; };
+		D1805E8C19E7DE36009505B1 /* Checkbox_off.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Checkbox_off.PNG; path = Resources/Checkbox_off.PNG; sourceTree = "<group>"; };
+		D1805E8D19E7DE36009505B1 /* Checkbox_on.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Checkbox_on.PNG; path = Resources/Checkbox_on.PNG; sourceTree = "<group>"; };
+		D1805E9019E7F0CB009505B1 /* EPetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetRootViewController.h; sourceTree = "<group>"; };
+		D1805E9119E7F0CB009505B1 /* EPetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetRootViewController.m; sourceTree = "<group>"; };
+		D1805E9219E7F0CB009505B1 /* EPetRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPetRootViewController.xib; sourceTree = "<group>"; };
 		D1AFCDE019D4FB70006B77A4 /* EPetSeniorserverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetSeniorserverViewController.h; sourceTree = "<group>"; };
 		D1AFCDE119D4FB70006B77A4 /* EPetSeniorserverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetSeniorserverViewController.m; sourceTree = "<group>"; };
 		D1AFCDE819D504CF006B77A4 /* NetBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetBase.cpp; sourceTree = "<group>"; };
@@ -332,9 +341,9 @@
 		D12E029219BFDFAD005E83D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D12E028D19BFDF7A005E83D1 /* RootViewController.h */,
-				D12E028E19BFDF7A005E83D1 /* RootViewController.m */,
-				D12E028F19BFDF7A005E83D1 /* RootViewController.xib */,
+				D12E028D19BFDF7A005E83D1 /* HomeViewController.h */,
+				D12E028E19BFDF7A005E83D1 /* HomeViewController.m */,
+				D12E028F19BFDF7A005E83D1 /* HomeViewController.xib */,
 				D1BDFD5419CBDBB7002D8BD3 /* EPetChooseTimeViewController.h */,
 				D1BDFD5519CBDBB7002D8BD3 /* EPetChooseTimeViewController.m */,
 				D1BDFD5619CBDBB7002D8BD3 /* EPetChooseTimeViewController.xib */,
@@ -349,6 +358,9 @@
 				D169A9FC19D43FD200848048 /* EPetSigupViewController.xib */,
 				D1AFCDE019D4FB70006B77A4 /* EPetSeniorserverViewController.h */,
 				D1AFCDE119D4FB70006B77A4 /* EPetSeniorserverViewController.m */,
+				D1805E9019E7F0CB009505B1 /* EPetRootViewController.h */,
+				D1805E9119E7F0CB009505B1 /* EPetRootViewController.m */,
+				D1805E9219E7F0CB009505B1 /* EPetRootViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -356,6 +368,8 @@
 		D1648DFA19C84C7900EF0E09 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D1805E8C19E7DE36009505B1 /* Checkbox_off.PNG */,
+				D1805E8D19E7DE36009505B1 /* Checkbox_on.PNG */,
 				D1648DFB19C84DDE00EF0E09 /* But_DianHua_normal.PNG */,
 				D1648DFC19C84DDE00EF0E09 /* But_DingDan_normal.PNG */,
 				D1648DFE19C84DDE00EF0E09 /* But_WoDe_normal.PNG */,
@@ -558,18 +572,21 @@
 				D1648E1519C84DDE00EF0E09 /* Icon_ShouYe_JieSongMeiRong.jpg in Resources */,
 				D169A9F919D43F8300848048 /* EPetOrderViewController.xib in Resources */,
 				D1648E1219C84DDE00EF0E09 /* Icon_ShouYe_FanYe01.png in Resources */,
+				D1805E8F19E7DE36009505B1 /* Checkbox_on.PNG in Resources */,
 				D1648E1119C84DDE00EF0E09 /* Icon_ShouYe_EChongAi.png in Resources */,
 				D1284F7419BE9818009DAF5F /* mapapi.bundle in Resources */,
+				D1805E9419E7F0CB009505B1 /* EPetRootViewController.xib in Resources */,
 				D1648E1419C84DDE00EF0E09 /* Icon_ShouYe_HuLiZuoPin.jpg in Resources */,
 				D169A9EE19D3AF2B00848048 /* EPetTableViewCell.xib in Resources */,
 				D1648E1619C84DDE00EF0E09 /* Icon_ShouYe_ShangCheng.jpg in Resources */,
+				D1805E8E19E7DE36009505B1 /* Checkbox_off.PNG in Resources */,
 				D1648E0A19C84DDE00EF0E09 /* But_DianHua_normal.PNG in Resources */,
 				D169A9FE19D43FD200848048 /* EPetSigupViewController.xib in Resources */,
 				D1648E0B19C84DDE00EF0E09 /* But_DingDan_normal.PNG in Resources */,
 				D174B1BF19B75B4900A96C4A /* InfoPlist.strings in Resources */,
 				D1648E1819C84DDE00EF0E09 /* Icon_ShouYe_XuanZeMeiRongShi.jpg in Resources */,
 				D15A44E719D18502000658EE /* EPetTableViewController.xib in Resources */,
-				D12E029119BFDF7A005E83D1 /* RootViewController.xib in Resources */,
+				D12E029119BFDF7A005E83D1 /* HomeViewController.xib in Resources */,
 				D1648E1719C84DDE00EF0E09 /* Icon_ShouYe_TuoErSuo.jpg in Resources */,
 				D1BDFD5819CBDBB7002D8BD3 /* EPetChooseTimeViewController.xib in Resources */,
 				D174B1C719B75B4900A96C4A /* Images.xcassets in Resources */,
@@ -604,13 +621,14 @@
 				D1AFCDED19D514B9006B77A4 /* NetClient.cpp in Sources */,
 				D15D437D19C02969009727AD /* EPetAppDelegate.m in Sources */,
 				D12B9C8619C9A06B00B71373 /* EPetPageView.m in Sources */,
+				D1805E9319E7F0CB009505B1 /* EPetRootViewController.m in Sources */,
 				D169A9ED19D3AF2B00848048 /* EPetTableViewCell.m in Sources */,
 				D169A9F819D43F8300848048 /* EPetOrderViewController.m in Sources */,
 				D174B1C119B75B4900A96C4A /* main.m in Sources */,
 				D1F3B90D19D00F750000FE63 /* EPetDatePick.m in Sources */,
 				D1BDFD5719CBDBB7002D8BD3 /* EPetChooseTimeViewController.m in Sources */,
 				D1AFCDE219D4FB70006B77A4 /* EPetSeniorserverViewController.m in Sources */,
-				D12E029019BFDF7A005E83D1 /* RootViewController.m in Sources */,
+				D12E029019BFDF7A005E83D1 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
