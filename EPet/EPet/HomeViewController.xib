@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -8,7 +9,6 @@
             <connections>
                 <outlet property="_beauty" destination="WBP-Qq-Tu9" id="BZi-Gn-Wue"/>
                 <outlet property="_kennels" destination="5YU-5w-IwM" id="asV-FC-yhM"/>
-                <outlet property="_tabBar" destination="xay-oH-i1t" id="hcK-Im-aj7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,16 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xay-oH-i1t">
-                    <rect key="frame" x="0.0" y="431" width="320" height="49"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem title="首页" image="But_ZhuYe_normal.PNG" id="Str-ZV-GUb"/>
-                        <tabBarItem tag="1" title="订单" image="But_DingDan_normal.PNG" id="KPx-wq-eeG"/>
-                        <tabBarItem tag="2" title="我的" image="But_WoDe_normal.PNG" id="8NA-3j-rTp"/>
-                        <tabBarItem tag="3" title="客服" image="But_DianHua_normal.PNG" id="ZI3-uK-7dw"/>
-                    </items>
-                </tabBar>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPK-ev-CNr">
                     <rect key="frame" x="162" y="317" width="154" height="109"/>
                     <state key="normal" image="Icon_ShouYe_HuLiZuoPin.jpg">
@@ -72,10 +62,6 @@
         </view>
     </objects>
     <resources>
-        <image name="But_DianHua_normal.PNG" width="22" height="20"/>
-        <image name="But_DingDan_normal.PNG" width="22" height="20"/>
-        <image name="But_WoDe_normal.PNG" width="22" height="20"/>
-        <image name="But_ZhuYe_normal.PNG" width="22" height="20"/>
         <image name="Icon_ShouYe_EChongAi.png" width="62" height="20"/>
         <image name="Icon_ShouYe_HuLiZuoPin.jpg" width="154" height="109"/>
         <image name="Icon_ShouYe_JieSongMeiRong.jpg" width="154" height="109"/>
