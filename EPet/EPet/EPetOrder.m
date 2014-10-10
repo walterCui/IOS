@@ -18,10 +18,15 @@ static EPetOrder *_order;
         case OrderTypeBeauty:
             _order = [[EPetOrderBeauty alloc]init];
             break;
-            
+        case OrderTypeKennels:
+            _order = [[EPetOrderKennels alloc]init];
+            break;
         default:
+            _order = NULL;
             break;
     }
+    if(_order != NULL)
+        _order.type = orderType;
     
     return _order;
 }
@@ -30,6 +35,7 @@ static EPetOrder *_order;
 {
     return _order;
 }
+
 @end
 
 
@@ -63,5 +69,9 @@ static EPetOrder *_order;
 @implementation EPetOrderBeauty
 
 
+
+@end
+
+@implementation EPetOrderKennels
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "EPetAppDelegate.h"
-#import "RootViewController.h"
+#import "HomeViewController.h"
 
 @implementation EPetAppDelegate
 
@@ -21,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //add rootview.
-    RootViewController *rootView = [[RootViewController alloc] init];
+    HomeViewController *rootView = [[HomeViewController alloc] init];
     //rootView.title = @"E Pet";
     self.window.rootViewController = rootView;
     

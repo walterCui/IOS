@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, OrderType)
 {
-    OrderTypeBeauty = 0
+    OrderTypeBeauty = 0,//美容.
+    OrderTypeKennels //寄养所.
 };
 @class OrderDate;
 
@@ -21,6 +22,8 @@ typedef NS_ENUM(NSInteger, OrderType)
 @property NSInteger serviceUid;
 @property OrderDate *time;
 @property NSString *location;
+@property OrderType type;
+
 +(EPetOrder *)createOrder:(OrderType)orderType;
 +(EPetOrder *)getOrder;
 @end
@@ -38,5 +41,10 @@ typedef NS_ENUM(NSInteger, OrderType)
 
 //美容师订单.
 @interface EPetOrderBeauty : EPetOrder
+
+@end
+
+//寄养.
+@interface EPetOrderKennels : EPetOrder
 
 @end

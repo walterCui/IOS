@@ -14,7 +14,7 @@
 
 @interface EPetChooseTimeViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *_location;
-
+@property (weak, nonatomic) IBOutlet UIButton *_Ok;
 @property (weak, nonatomic) IBOutlet UITextField *_locationDetail;
 @property (strong, nonatomic) IBOutlet EPetDatePick *eptDate;
 @property (weak, nonatomic) IBOutlet UITextField *_dateInput;
@@ -48,6 +48,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.title = @"选择时间";
+    EPetOrder *order = [EPetOrder getOrder];
+    if(order.type == OrderTypeBeauty)
+    {
+        [self._Ok setTitle:@"选择美容师" forState:UIControlStateNormal];
+    }
+    else if (order.type == OrderTypeKennels)
+    {
+        [self._Ok setTitle:@"选择寄养所" forState:UIControlStateNormal];
+    }
     [self._baiduLoaction viewWillAppear];
     
     [self._baiduLoaction startLocation];
