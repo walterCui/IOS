@@ -61,6 +61,7 @@
     
     [self._baiduLoaction startLocation];
     self._baiduLoaction.locationDelgate = self;
+    [super viewWillDisappear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -69,6 +70,7 @@
     self._baiduLoaction.locationDelgate = nil;
     [self._baiduLoaction stopLocation];
     [self._baiduLoaction viewWillDisappear];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning

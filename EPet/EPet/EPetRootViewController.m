@@ -20,14 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    HomeViewController *home = [[HomeViewController alloc] init];
+    HomeViewController *homeView = [[HomeViewController alloc] init];
+    UINavigationController *home = [[UINavigationController alloc] initWithRootViewController:homeView];
+    //HomeViewController *home = [[HomeViewController alloc] init];
     EPetMyOrderViewController *myOrder = [[EPetMyOrderViewController alloc] init];
     EPetSignupViewController *signup = [[EPetSignupViewController alloc] init];
     EPetCustomerServiceViewController *cs = [[EPetCustomerServiceViewController alloc]init];
     //[cs setModalPresentationStyle: UIModalPresentationPopover];
     self.viewControllers = [[NSArray alloc] initWithObjects:home, myOrder,signup, cs,nil];
     
-    self.selectedIndex = 0;
+    //self.selectedIndex = 0;
     [self.tabBar setTintColor:[UIColor redColor]];
    
     //set tabbarItem.
@@ -45,22 +47,9 @@
     self.delegate = self;
 }
 
-//-(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
-//{
-//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    //self._tabbar.selectedItem = [self._tabBar.items objectAtIndex:0];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    
 }
 
 /*

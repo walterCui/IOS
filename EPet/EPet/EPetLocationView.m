@@ -25,26 +25,30 @@
         [self.cllm requestWhenInUseAuthorization];
     }
 
+    if(self._locService  == nil)
+    {
     self._locService = [[BMKLocationService alloc]init];
     self._search = [[BMKGeoCodeSearch alloc]init];
     
     self._search.delegate = self;
     
     self._locService.delegate = self;
-    
+    }
     [self._locService startUserLocationService];
     self.showsUserLocation = NO;
     self.userTrackingMode = BMKUserTrackingModeFollow;
     self.showsUserLocation = YES;
+    
 }
 -(void)stopLocation
 {
-    [self._locService stopUserLocationService];
-    
-    self._locService.delegate = nil;
-    self._search.delegate = nil;
-    self._locService = nil;
-    self.cllm = nil;
+//    [self._locService stopUserLocationService];
+//    
+//    self._locService.delegate = nil;
+//    self._search.delegate = nil;
+//    self._locService = nil;
+//    self._search = nil;
+//    self.cllm = nil;
 }
 - (id)initWithFrame:(CGRect)frame
 {

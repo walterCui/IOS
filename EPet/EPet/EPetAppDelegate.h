@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
 
-@interface EPetAppDelegate : UIResponder <UIApplicationDelegate,UINavigationControllerDelegate>
+@interface EPetAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property(strong,nonatomic) UINavigationController *navigationController;

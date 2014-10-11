@@ -23,15 +23,15 @@
     
     //add rootview.
     EPetRootViewController *rootView = [[EPetRootViewController alloc] init];
-    //rootView.title = @"E Pet";
+    
     self.window.rootViewController = rootView;
     
     //navigation.
-    self.navigationController = [[UINavigationController alloc]init];
-    self.navigationController.delegate=self;
-    [self.navigationController pushViewController:rootView animated:YES];
-    [self.window addSubview:self.navigationController.view];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:40/255.0 green:147/255.0 blue:248/255.0 alpha:0.5];
+//    self.navigationController = [[UINavigationController alloc]init];
+//    self.navigationController.delegate=self;
+//    [self.navigationController pushViewController:rootView animated:YES];
+//    [self.window addSubview:self.navigationController.view];
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:40/255.0 green:147/255.0 blue:248/255.0 alpha:0.5];
 
     
     // Override point for customization after application launch.
@@ -66,16 +66,4 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if(viewController == self.window.rootViewController)
-    {
-        [self.navigationController setNavigationBarHidden:YES animated:YES];
-    }
-    else{
-        [self.navigationController setNavigationBarHidden:NO animated:YES];
-    }
-}
-
 @end

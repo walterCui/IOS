@@ -31,13 +31,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    //self.navigationController.toolbar.frame = CGRectMake(0, [[UIScreen mainScreen]bounds].size.height - 56, [[UIScreen mainScreen]bounds].size.width, 56);
-    
-    //[self.navigationController setNavigationBarHidden:YES animated:YES];
-    //self.view.autoresizingMask =
+    //navigation.
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:40/255.0 green:147/255.0 blue:248/255.0 alpha:0.5];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
