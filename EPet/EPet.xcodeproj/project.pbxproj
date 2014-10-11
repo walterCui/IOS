@@ -37,8 +37,6 @@
 		D169A9F119D3F8C400848048 /* EPetOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = D169A9F019D3F8C400848048 /* EPetOrder.m */; };
 		D169A9F819D43F8300848048 /* EPetOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D169A9F619D43F8300848048 /* EPetOrderViewController.m */; };
 		D169A9F919D43F8300848048 /* EPetOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D169A9F719D43F8300848048 /* EPetOrderViewController.xib */; };
-		D169A9FD19D43FD200848048 /* EPetSigupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D169A9FB19D43FD200848048 /* EPetSigupViewController.m */; };
-		D169A9FE19D43FD200848048 /* EPetSigupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D169A9FC19D43FD200848048 /* EPetSigupViewController.xib */; };
 		D174B1B519B75B4900A96C4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174B1B419B75B4900A96C4A /* Foundation.framework */; };
 		D174B1B719B75B4900A96C4A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174B1B619B75B4900A96C4A /* CoreGraphics.framework */; };
 		D174B1B919B75B4900A96C4A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174B1B819B75B4900A96C4A /* UIKit.framework */; };
@@ -54,6 +52,8 @@
 		D1805E8F19E7DE36009505B1 /* Checkbox_on.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D1805E8D19E7DE36009505B1 /* Checkbox_on.PNG */; };
 		D1805E9319E7F0CB009505B1 /* EPetRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1805E9119E7F0CB009505B1 /* EPetRootViewController.m */; };
 		D1805E9419E7F0CB009505B1 /* EPetRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1805E9219E7F0CB009505B1 /* EPetRootViewController.xib */; };
+		D1852C5F19E8CE6C00C84ABC /* EPetSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1852C5C19E8CE6C00C84ABC /* EPetSignupViewController.m */; };
+		D1852C6019E8CE6C00C84ABC /* EPetSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1852C5D19E8CE6C00C84ABC /* EPetSignupViewController.xib */; };
 		D1AFCDE219D4FB70006B77A4 /* EPetSeniorserverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AFCDE119D4FB70006B77A4 /* EPetSeniorserverViewController.m */; };
 		D1AFCDEA19D504CF006B77A4 /* NetBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AFCDE819D504CF006B77A4 /* NetBase.cpp */; };
 		D1AFCDED19D514B9006B77A4 /* NetClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D1AFCDEB19D514B9006B77A4 /* NetClient.cpp */; };
@@ -175,9 +175,6 @@
 		D169A9F519D43F8300848048 /* EPetOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetOrderViewController.h; sourceTree = "<group>"; };
 		D169A9F619D43F8300848048 /* EPetOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetOrderViewController.m; sourceTree = "<group>"; };
 		D169A9F719D43F8300848048 /* EPetOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPetOrderViewController.xib; sourceTree = "<group>"; };
-		D169A9FA19D43FD200848048 /* EPetSigupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetSigupViewController.h; sourceTree = "<group>"; };
-		D169A9FB19D43FD200848048 /* EPetSigupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetSigupViewController.m; sourceTree = "<group>"; };
-		D169A9FC19D43FD200848048 /* EPetSigupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPetSigupViewController.xib; sourceTree = "<group>"; };
 		D174B1B119B75B4900A96C4A /* EPet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EPet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D174B1B419B75B4900A96C4A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D174B1B619B75B4900A96C4A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -198,6 +195,9 @@
 		D1805E9019E7F0CB009505B1 /* EPetRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetRootViewController.h; sourceTree = "<group>"; };
 		D1805E9119E7F0CB009505B1 /* EPetRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetRootViewController.m; sourceTree = "<group>"; };
 		D1805E9219E7F0CB009505B1 /* EPetRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPetRootViewController.xib; sourceTree = "<group>"; };
+		D1852C5C19E8CE6C00C84ABC /* EPetSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetSignupViewController.m; sourceTree = "<group>"; };
+		D1852C5D19E8CE6C00C84ABC /* EPetSignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EPetSignupViewController.xib; sourceTree = "<group>"; };
+		D1852C5E19E8CE6C00C84ABC /* EPetSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetSignupViewController.h; sourceTree = "<group>"; };
 		D1AFCDE019D4FB70006B77A4 /* EPetSeniorserverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPetSeniorserverViewController.h; sourceTree = "<group>"; };
 		D1AFCDE119D4FB70006B77A4 /* EPetSeniorserverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPetSeniorserverViewController.m; sourceTree = "<group>"; };
 		D1AFCDE819D504CF006B77A4 /* NetBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetBase.cpp; sourceTree = "<group>"; };
@@ -341,6 +341,9 @@
 		D12E029219BFDFAD005E83D1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D1852C5C19E8CE6C00C84ABC /* EPetSignupViewController.m */,
+				D1852C5D19E8CE6C00C84ABC /* EPetSignupViewController.xib */,
+				D1852C5E19E8CE6C00C84ABC /* EPetSignupViewController.h */,
 				D12E028D19BFDF7A005E83D1 /* HomeViewController.h */,
 				D12E028E19BFDF7A005E83D1 /* HomeViewController.m */,
 				D12E028F19BFDF7A005E83D1 /* HomeViewController.xib */,
@@ -353,9 +356,6 @@
 				D169A9F519D43F8300848048 /* EPetOrderViewController.h */,
 				D169A9F619D43F8300848048 /* EPetOrderViewController.m */,
 				D169A9F719D43F8300848048 /* EPetOrderViewController.xib */,
-				D169A9FA19D43FD200848048 /* EPetSigupViewController.h */,
-				D169A9FB19D43FD200848048 /* EPetSigupViewController.m */,
-				D169A9FC19D43FD200848048 /* EPetSigupViewController.xib */,
 				D1AFCDE019D4FB70006B77A4 /* EPetSeniorserverViewController.h */,
 				D1AFCDE119D4FB70006B77A4 /* EPetSeniorserverViewController.m */,
 				D1805E9019E7F0CB009505B1 /* EPetRootViewController.h */,
@@ -581,13 +581,13 @@
 				D1648E1619C84DDE00EF0E09 /* Icon_ShouYe_ShangCheng.jpg in Resources */,
 				D1805E8E19E7DE36009505B1 /* Checkbox_off.PNG in Resources */,
 				D1648E0A19C84DDE00EF0E09 /* But_DianHua_normal.PNG in Resources */,
-				D169A9FE19D43FD200848048 /* EPetSigupViewController.xib in Resources */,
 				D1648E0B19C84DDE00EF0E09 /* But_DingDan_normal.PNG in Resources */,
 				D174B1BF19B75B4900A96C4A /* InfoPlist.strings in Resources */,
 				D1648E1819C84DDE00EF0E09 /* Icon_ShouYe_XuanZeMeiRongShi.jpg in Resources */,
 				D15A44E719D18502000658EE /* EPetTableViewController.xib in Resources */,
 				D12E029119BFDF7A005E83D1 /* HomeViewController.xib in Resources */,
 				D1648E1719C84DDE00EF0E09 /* Icon_ShouYe_TuoErSuo.jpg in Resources */,
+				D1852C6019E8CE6C00C84ABC /* EPetSignupViewController.xib in Resources */,
 				D1BDFD5819CBDBB7002D8BD3 /* EPetChooseTimeViewController.xib in Resources */,
 				D174B1C719B75B4900A96C4A /* Images.xcassets in Resources */,
 				D1648E0F19C84DDE00EF0E09 /* But_ZhuYe_normal.PNG in Resources */,
@@ -610,7 +610,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D169A9FD19D43FD200848048 /* EPetSigupViewController.m in Sources */,
 				D1D43ADA19D2EC27005F08AB /* EPetWaiterModel.m in Sources */,
 				D1284F2919BE8621009DAF5F /* NetFacade.cpp in Sources */,
 				D15D438919C03CBC009727AD /* EPetLocationView.m in Sources */,
@@ -622,6 +621,7 @@
 				D15D437D19C02969009727AD /* EPetAppDelegate.m in Sources */,
 				D12B9C8619C9A06B00B71373 /* EPetPageView.m in Sources */,
 				D1805E9319E7F0CB009505B1 /* EPetRootViewController.m in Sources */,
+				D1852C5F19E8CE6C00C84ABC /* EPetSignupViewController.m in Sources */,
 				D169A9ED19D3AF2B00848048 /* EPetTableViewCell.m in Sources */,
 				D169A9F819D43F8300848048 /* EPetOrderViewController.m in Sources */,
 				D174B1C119B75B4900A96C4A /* main.m in Sources */,
