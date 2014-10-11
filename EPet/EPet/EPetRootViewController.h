@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EPetRootViewController : UITabBarController
+@interface EPetRootViewController : UITabBarController<UITabBarControllerDelegate>
 
 @end

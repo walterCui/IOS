@@ -8,10 +8,11 @@
 
 #import "EPetRootViewController.h"
 #import "HomeViewController.h"
-//#import "EPetSignupViewController.h"
+#import "EPetSignupViewController.h"
+#import "EPetMyOrderViewController.h"
+#import "EPetCustomerServiceViewController.h"
 
 @interface EPetRootViewController ()
-@property (weak, nonatomic) IBOutlet UITabBar *_tabbar;
 
 @end
 
@@ -20,16 +21,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     HomeViewController *home = [[HomeViewController alloc] init];
-    
-    self.viewControllers = [[NSArray alloc] initWithObjects:home, nil];
+    EPetMyOrderViewController *myOrder = [[EPetMyOrderViewController alloc] init];
+    EPetSignupViewController *signup = [[EPetSignupViewController alloc] init];
+    EPetCustomerServiceViewController *cs = [[EPetCustomerServiceViewController alloc]init];
+    //[cs setModalPresentationStyle: UIModalPresentationPopover];
+    self.viewControllers = [[NSArray alloc] initWithObjects:home, myOrder,signup, cs,nil];
     
     self.selectedIndex = 0;
-    // Do any additional setup after loading the view from its nib.
-    //[self.navigationController setNavigationBarHidden:YES animated:YES];
     [self.tabBar setTintColor:[UIColor redColor]];
-    //self.tabBar.items = [[NSArray alloc] initWithObjects:[self._tabbar.items objectAtIndex:0], nil ];
-   }
+   
+    //set tabbarItem.
+    UITabBarItem *item;
+    NSArray *barNames = [[NSArray alloc]initWithObjects:@"首页",@"订单",@"我的",@"客服", nil];
+    NSArray *barImage = [[NSArray alloc]initWithObjects:[UIImage imageNamed:@"But_ZhuYe_normal.PNG"],[UIImage imageNamed:@"But_DingDan_normal.PNG"],[UIImage imageNamed:@"But_WoDe_normal.PNG"],[UIImage imageNamed:@"But_DianHua_normal.PNG"], nil];
+    for(int i = 0; i < 4; i++)
+    {
+        item = [self.tabBar.items objectAtIndex:i];
+        item.title = [barNames objectAtIndex:i];
+        item.tag = i;
+        [item setImage:[barImage objectAtIndex:i]];
+    }
+    
+    self.delegate = self;
+}
 
+//-(BOOL) tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+//{
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
