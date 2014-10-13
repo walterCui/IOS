@@ -16,6 +16,8 @@
 
 #define BUFFMAXSIZE 2048
 
+typedef void (*handleDelegate) (int code, Byte *data);
+
 class NetBase
 {
 public:
@@ -26,13 +28,16 @@ public:
     
     char* getError();
     BOOL send(IDataWraper *data);
-    //BOOL send(int to, IDataWraper data);
-    void ddd();
     virtual void update();
     
     void close();
+    
+protected:
+    virtual void HandleData(Byte *data) = 0;
 private:
     void init();
+    void UnPackData(int length, int start);
+    
 protected:
     int socketFileDescriptor;
     char* error;
@@ -40,7 +45,8 @@ protected:
     std::mutex mtx;
     std::queue<IDataWraper*> *writeBuff;
     std::queue<IDataWraper*> *swapeBuff;
-    std::queue<IDataWraper*> *readBuff;
+    std::queue<Byte*> *readBuff;
+    
 private:
     Byte data[BUFFMAXSIZE]; //用于序列化的buff.
     int dataSize;//序列化后的数据长度.
@@ -48,7 +54,21 @@ private:
     int wtRdSize;//用与记录读写socket时的数据长度.
     struct timeval timeout;
     fd_set fdset;
-
+    
+    //用于缓存都到的数据是用到的.
+    struct ByteArray_t
+    {
+        Byte * data;
+        int index;
+        int dataLength;
+    } readDataTemp;
+    
+//    inline void pushReadData()
+//    {
+//        readBuff->push(readDataTemp.data);
+//        readDataTemp.data = NULL;
+//
+//    }
 };
 
 #endif /* defined(__EPet__NetBase__) */

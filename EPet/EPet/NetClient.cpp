@@ -11,6 +11,7 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
+#include "Converter.h"
 
 BOOL NetClient::connect(char *ip, int port)
 {
@@ -36,4 +37,33 @@ BOOL NetClient::connect(char *ip, int port)
     }
     
     return  true;
+}
+
+void NetClient::subscribeEventHandle(handleDelegate value)
+{
+    handleEvent= value;
+}
+
+void NetClient::subscribeResponsHandle(handleDelegate value)
+{
+    handleResponse = value;
+}
+
+void NetClient::HandleData(Byte *data)
+{
+    int i = 20;//head.
+    short msgId = Converter::getShort(data, i);
+    short msgType = Converter::getShort(data, i);
+    if(msgType == 1)
+    {
+        //response.
+        if(handleResponse!= NULL)
+            handleResponse(msgId, data);
+    }
+    else if (msgType == 2)
+    {
+        //event.
+        if(handleEvent != NULL)
+            handleEvent(msgId,data);
+    }
 }

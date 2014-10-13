@@ -16,5 +16,13 @@ class NetClient:public NetBase
 {
 public:
     BOOL connect(char* ip, int port);
+    void subscribeResponsHandle(handleDelegate value);
+    void subscribeEventHandle(handleDelegate value);
+    
+protected:
+    virtual void HandleData(Byte *data);
+private:
+    handleDelegate handleResponse;
+    handleDelegate handleEvent;
 };
 #endif /* defined(__EPet__NetClient__) */

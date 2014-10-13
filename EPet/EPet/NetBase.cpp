@@ -9,6 +9,7 @@
 #include "NetBase.h"
 
 #include <netinet/in.h>
+#include "Converter.h"
 
 NetBase::NetBase()
 {
@@ -40,7 +41,7 @@ NetBase::NetBase(int socketHandle)
 void NetBase::init()
 {
     writeBuff = new std::queue<IDataWraper*>;
-    readBuff = new std::queue<IDataWraper*>;
+    readBuff = new std::queue<Byte*>;
     swapeBuff = new std::queue<IDataWraper*>;
     timeout.tv_sec = 0;
     timeout.tv_usec = 100;
@@ -122,7 +123,58 @@ void NetBase::update()
         if(__DARWIN_FD_ISSET(socketFileDescriptor, &fdset))
         {
             wtRdSize = read(socketFileDescriptor, data, BUFFMAXSIZE);
+            UnPackData(wtRdSize, 0);
         }
+    }
+}
+
+void NetBase::UnPackData(int length, int start)
+{
+    if(length <= 0)
+    {
+        //error.
+        return;
+    }
+    
+    int needLength;
+    
+    //new data.
+    if(readDataTemp.data == NULL)
+    {
+        readDataTemp.dataLength = Converter::getInt(data, start);
+        readDataTemp.data = new Byte[readDataTemp.dataLength];
+        
+        //copy data.
+        readDataTemp.index = MIN(readDataTemp.dataLength, length);
+        for(int i = 0; i < readDataTemp.index; i++)
+        {
+            readDataTemp.data[i] = data[i+start];
+        }
+        
+        needLength = readDataTemp.dataLength;
+    }
+    else
+    {
+        needLength = readDataTemp.dataLength - readDataTemp.index;
+        int min = MIN(needLength, length);
+        
+        for(int i = 0;  i < min; i++)
+        {
+            readDataTemp.data[i+readDataTemp.index] = data[i+start];
+        }
+        readDataTemp.index += min;
+    }
+    
+    if(length >= needLength)
+    {
+        //pushReadData();
+        HandleData(readDataTemp.data);
+        readDataTemp.data = NULL;
+    }
+    
+    if(length > needLength)
+    {
+        UnPackData(length - needLength, needLength + start);
     }
 }
 

@@ -26,7 +26,6 @@ NetFacade::~NetFacade()
 void NetFacade::updateNet()
 {
     while (true) {
-        printf("1111\n");
         instance ->client->update();
     }
 }
@@ -38,12 +37,13 @@ bool NetFacade::isConnected()
 
 void NetFacade::connect(char *ip, int port)
 {
-    client->connect(ip, port);
-    _isConnected = true;
-    clientThread = std::thread(updateNet);
+    _isConnected = client->connect(ip, port);
+    if(_isConnected)
+        clientThread = std::thread(updateNet);
 }
 void NetFacade::disconnect()
 {
+    client->close();
     _isConnected = false;
 }
 /*=========Method=============*/

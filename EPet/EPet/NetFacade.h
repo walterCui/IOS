@@ -39,7 +39,6 @@ public:
     
     void connect(char *ip, int prot);
     void disconnect();
-    
 private:
     static void updateNet();//更新socket的读写操作,用于子线程中.
     
