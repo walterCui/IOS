@@ -92,6 +92,7 @@ void NetBase::update()
         dataSize = dateWraper->serialization(data);
         if(dataSize > 0)
         {
+            Converter::toBytes(data, 0, dataSize);
             ptr = data;
             while (true) {
                 wtRdSize = write(socketFileDescriptor, ptr, dataSize);
@@ -108,6 +109,8 @@ void NetBase::update()
                         dataSize -= wtRdSize;
                         ptr += wtRdSize;
                     }
+                    else
+                        break;
                 }
             }
             
@@ -142,6 +145,13 @@ void NetBase::UnPackData(int length, int start)
     if(readDataTemp.data == NULL)
     {
         readDataTemp.dataLength = Converter::getInt(data, start);
+        start -= 4; //因为Converter::getInt 会修改start的数值,故需要还原回去.
+        if(readDataTemp.dataLength <= 0)
+        {
+            //error.
+            readDataTemp.data = NULL;
+            return;
+        }
         readDataTemp.data = new Byte[readDataTemp.dataLength];
         
         //copy data.

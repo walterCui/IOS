@@ -18,6 +18,7 @@ class NetSeesion
 public:
     static int GetDialogId();
     static unsigned long long GetUID();
+    static void reset();
 private:
     static int playerId;
     static int dialogId;

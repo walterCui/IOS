@@ -12,23 +12,23 @@
 #include <stdio.h>
 #include "NetBase.h"
 
+class NetClientInterface
+{
+public:
+    
+    virtual void handleResponse (short code, Byte *data) = 0;
+    virtual void handleEvent (short code, Byte *data) = 0;
+};
+
 class NetClient:public NetBase
 {
 public:
     BOOL connect(char* ip, int port);
-    void subscribeResponsHandle(handleDelegate value);
-    void subscribeEventHandle(handleDelegate value);
-    
 protected:
     virtual void HandleData(Byte *data);
-    
-private:
-    handleDelegate handleResponse;
-    handleDelegate handleEvent;
+public:
+    NetClientInterface *delegate;
 };
 
-//class NetClientInterface
-//{
-//    
-//};
+
 #endif /* defined(__EPet__NetClient__) */

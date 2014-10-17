@@ -20,5 +20,11 @@ public:
     static const short signout = 102;
     
     static const short connect = 101;
+    
+    static const short getBeauticianList = 162;
+    
+    static const short getOrderList = 169;
+    
+    static const short createOrder = 170;
 };
 #endif /* defined(__EPet__NetConstant__) */

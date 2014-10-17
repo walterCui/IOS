@@ -8,6 +8,11 @@
 
 #include "Converter.h"
 
+int Converter::toBytes(Byte *bytes, int start, Byte value)
+{
+    bytes[start] = value;
+    return 1;
+}
 int Converter::toBytes(Byte *bytes, int start, char value)
 {
     bytes[start] = value;
@@ -16,9 +21,9 @@ int Converter::toBytes(Byte *bytes, int start, char value)
 
 int Converter::toBytes(Byte *bytes, int start, short value)
 {
-    bytes += start;
+    Byte *ptr = bytes + start;
     HTONS(value);
-    memcpy(bytes, &value, sizeof(short));
+    memcpy(ptr, &value, sizeof(short));
     return  sizeof(short);
 }
 
@@ -29,17 +34,17 @@ int Converter::toBytes(Byte *bytes, int start, unsigned short value)
 
 int Converter::toBytes(Byte *bytes, int start, int value)
 {
-    bytes += start;
+    Byte *ptr = bytes + start;
     HTONL(value);
-    memcpy(bytes, &value, sizeof(int));
+    memcpy(ptr, &value, sizeof(int));
     return sizeof(int);
 }
 
 int Converter::toBytes(Byte *bytes, int start, long long value)
 {
-    bytes += start;
+    Byte *ptr = bytes + start;
     HTONLL(value);
-    memcpy(bytes, &value, sizeof(long long));
+    memcpy(ptr, &value, sizeof(long long));
     return  sizeof(long long);
 }
 
@@ -52,8 +57,19 @@ int Converter::toBytes(Byte *bytes, int start, unsigned long long value)
 int Converter::toBytes(Byte *bytes, int start, char *string)
 {
     short len = strlen(string);
-    memcpy(bytes, string, len);
-    return len;
+    start += toBytes(bytes, start, len);
+    Byte *ptr = bytes + start;
+    memcpy(ptr, string, len);
+    return len+2;
+}
+
+int Converter::toBytes(Byte *bytes, int start, float value)
+{
+    Byte *ptr = (Byte*)&value;
+    for(int i = 0; i < 4; i++)
+        bytes[i+start] = ptr[i];
+    start += 4;
+    return  sizeof(float);
 }
 //===================//
 
@@ -67,9 +83,9 @@ char Converter::getChar(Byte *bytes, int &start)
 short Converter::getShort(Byte *bytes, int &start)
 {
     short tem = sizeof(short);
-    bytes += start;
+    Byte *ptr = bytes + start;
     start += tem;
-    memcpy((void*)&tem,bytes, tem);
+    memcpy((void*)&tem,ptr, tem);
     return  ntohs(tem);
     
 }
@@ -84,8 +100,8 @@ unsigned short Converter::getUShort(Byte *bytes, int &start)
 int Converter::getInt(Byte *bytes, int &start)
 {
     int temp = 0;
-    bytes += start;
-    memcpy((void*)&temp, bytes, sizeof(int));
+    Byte *ptr = bytes + start;
+    memcpy((void*)&temp, ptr, sizeof(int));
     start += sizeof(int);
     return ntohl(temp);
 }
@@ -94,9 +110,9 @@ int Converter::getInt(Byte *bytes, int &start)
 long long Converter::getInt64(Byte *bytes, int &start)
 {
     long long tem = 8;
-    bytes += start;
+    Byte *ptr = bytes + start;
     start += tem;
-    memcpy((void*)&tem,bytes, 8);
+    memcpy((void*)&tem,ptr, 8);
     return  ntohll(tem);
     
 }
@@ -109,7 +125,19 @@ unsigned long long Converter::getUInt64(Byte *bytes, int &start)
 char* Converter::getString(Byte *bytes, int &start)
 {
     short len = getShort(bytes, start);
-    char* temp = new char[len];
-    memcpy(temp, bytes, len);
+    char* temp = new char[len+1];
+    Byte *ptr = bytes + start;
+    memcpy(temp, ptr, len);
+    temp[len] = 0;
+    return  temp;
+}
+
+float Converter::getFloat(Byte *bytes, int &start)
+{
+    float temp = 0;
+    Byte *ptr = (Byte*)&temp;
+    for(int i = 0; i < 4; i++)
+        ptr[i] = bytes[i+start];
+    start += 4;
     return  temp;
 }
