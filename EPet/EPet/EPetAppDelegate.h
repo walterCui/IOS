@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
+#import "EPetNetData.h"
+#import "NetFacade.h"
+#import "EPetCookie.h"
 
 @interface EPetAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,4 +18,7 @@
 @property(strong,nonatomic) UINavigationController *navigationController;
 
 @property BMKMapManager * mapManager;
+
++(void)subcribeResponseHandle:(short)code target:(id)target action:(SEL)action;
++(void)unsubcribeResponseHandle:(short)code;
 @end

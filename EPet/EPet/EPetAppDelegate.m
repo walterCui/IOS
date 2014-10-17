@@ -10,28 +10,92 @@
 #import "HomeViewController.h"
 #import "EPetRootViewController.h"
 
+@interface handleWraper:NSObject
+
+@property NSInteger code;
+@property id target;
+@property SEL action;
+
+-(instancetype)init:(NSInteger)code target:(id)target action:(SEL)action;
+
+@end
+
+@implementation handleWraper
+-(instancetype)init:(NSInteger)code target:(id)target action:(SEL)action
+{
+    self.code = code;
+    self.target = target;
+    self.action = action;
+    return [super init];
+}
+@end
+
 @implementation EPetAppDelegate
 
+
+static NSMutableArray *handles;
+
+static void handleResponse(short code,Byte* data)
+{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        handleWraper * temp;
+        for(int i = 0, max = [handles count]; i < max; i++)
+        {
+            temp = handles[i];
+            if(temp.code == code)
+            {
+                [temp.target performSelector:temp.action withObject:[[EPetNetData alloc]init:code dataValue:data]];
+                //free memory;
+                delete [] data;
+                break;
+            }
+        }
+    }];
+}
+
++(void)subcribeResponseHandle:(short)code target:(id)target action:(SEL)action
+{
+    [handles addObject:[[handleWraper alloc]init:code target:target action:action]];
+}
++(void)unsubcribeResponseHandle:(short)code
+{
+    handleWraper * temp;
+    for(int i = [handles count]-1; i >= 0; i--)
+    {
+        temp = handles[i];
+        if(temp.code == code)
+        {
+            [handles removeObjectAtIndex:i];
+            break;
+        }
+    }
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    //connect to net.
+    NetFacade::GetInstance()->connect((char*)"192.168.1.139", 29001);
+    NetFacade::GetInstance()->subscribeResponsHandle(-1, handleResponse);
+    
+    handles = [[NSMutableArray alloc]init];
     
     self.mapManager = [[BMKMapManager alloc] init];
     if([self.mapManager start:@"fhshEiSxp3n45QHq7dz5YpRF" generalDelegate:nil] == true)
         NSLog(@"baidu map is ok");
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
+
     //add rootview.
     EPetRootViewController *rootView = [[EPetRootViewController alloc] init];
     
     self.window.rootViewController = rootView;
     
     //navigation.
-//    self.navigationController = [[UINavigationController alloc]init];
-//    self.navigationController.delegate=self;
-//    [self.navigationController pushViewController:rootView animated:YES];
-//    [self.window addSubview:self.navigationController.view];
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:40/255.0 green:147/255.0 blue:248/255.0 alpha:0.5];
+    self.navigationController = [[UINavigationController alloc]init];
+    //self.navigationController.delegate=self;
+    [self.navigationController pushViewController:rootView animated:YES];
+    [self.window addSubview:self.navigationController.view];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:40/255.0 green:147/255.0 blue:248/255.0 alpha:0.5];
 
     
     // Override point for customization after application launch.
