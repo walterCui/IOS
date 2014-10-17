@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EPetRootViewController : UITabBarController<UITabBarControllerDelegate>
-
+@interface EPetRootViewController : UITabBarController<UITabBarControllerDelegate,UIAlertViewDelegate>
++(instancetype)instance;
+@property BOOL isSignin;
 @end

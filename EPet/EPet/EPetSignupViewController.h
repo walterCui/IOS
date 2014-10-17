@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EPetSignupViewController : UIViewController
-
+-(instancetype)init:(NSUInteger)forTabbar;
 @end

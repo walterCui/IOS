@@ -27,7 +27,10 @@
     return self;
 }
 
-
+-(IBAction)adfa:(id)sender
+{
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,16 +38,19 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:40/255.0 green:147/255.0 blue:248/255.0 alpha:0.5];
 }
 
--(void)viewWillAppear:(BOOL)animated
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//}
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [super viewDidAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
-
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 - (void)didReceiveMemoryWarning
 {

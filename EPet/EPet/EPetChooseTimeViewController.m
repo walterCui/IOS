@@ -13,6 +13,7 @@
 #import "EPetOrder.h"
 
 @interface EPetChooseTimeViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *_tiemLabel;
 @property (weak, nonatomic) IBOutlet UITextField *_location;
 @property (weak, nonatomic) IBOutlet UIButton *_Ok;
 @property (weak, nonatomic) IBOutlet UITextField *_locationDetail;
@@ -51,17 +52,19 @@
     EPetOrder *order = [EPetOrder getOrder];
     if(order.type == OrderTypeBeauty)
     {
+        self._tiemLabel.text = @"上门时间";
         [self._Ok setTitle:@"选择美容师" forState:UIControlStateNormal];
     }
     else if (order.type == OrderTypeKennels)
     {
+        self._tiemLabel.text = @"寄养时间";
         [self._Ok setTitle:@"选择寄养所" forState:UIControlStateNormal];
     }
     [self._baiduLoaction viewWillAppear];
     
     [self._baiduLoaction startLocation];
     self._baiduLoaction.locationDelgate = self;
-    [super viewWillDisappear:animated];
+    [super viewWillAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -92,12 +95,12 @@
     
     if ([self._dateInput.text isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"请选择时间" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请选择时间" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [alert show];
     }
     else if ([self._locationDetail.text isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"请填写详细地址" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请填写详细地址" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [alert show];
     }
 

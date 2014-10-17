@@ -11,6 +11,7 @@
 #import "EPetTableViewCell.h"
 #import "EPetOrder.h"
 #import "EPetOrderViewController.h"
+#import "EPetAppDelegate.h"
 
 @interface EPetTableViewController ()
 @property (weak, nonatomic) IBOutlet UIView *_filterView;
@@ -52,11 +53,23 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self freshView];
     
-    self.title = @"选择护理师";
+     if([EPetOrder getOrder].type == OrderTypeKennels)
+     {
+         self.title = @"选择托儿所";
+     }
+    else if([EPetOrder getOrder].type == OrderTypeBeauty)
+    {
+        self.title = @"选择护理师";
+        NetFacade::GetInstance()->getBeauticianList();
+    }
     self._tableView.dataSource = self;
     self._tableView.delegate = self;
+    
+    [EPetAppDelegate subcribeResponseHandle:requesCode::getBeauticianList target:self action:@selector(handleResponse:)];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -64,6 +77,8 @@
     self.title = @"";
     self._tableView.delegate = nil;
     self._tableView.dataSource = nil;
+    [EPetAppDelegate unsubcribeResponseHandle:requesCode::getBeauticianList];
+    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,8 +100,6 @@
         
         [self._SeniorserverArray addObject:item];
     }
-    NSLog(@"sds%d", [self._SeniorserverArray count]);
-
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -132,6 +145,21 @@
 -(IBAction)checkboxClick:(UIButton*)sender
 {
     sender.selected = !sender.selected;
+}
+
+-(void)handleResponse:(EPetNetData*)data
+{
+    if(data == NULL)
+        return;
+    
+    switch (data.code) {
+        case requesCode::getBeauticianList:
+            NSLog(@"requesCode::getBeauticianList");
+            break;
+            
+        default:
+            break;
+    }
 }
 /*
 #pragma mark - Navigation

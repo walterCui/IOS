@@ -12,6 +12,7 @@
                 <outlet property="_dateInput" destination="VWk-rY-hPh" id="RqF-I3-0C3"/>
                 <outlet property="_location" destination="vyt-m3-awb" id="fU9-SW-Rge"/>
                 <outlet property="_locationDetail" destination="BaL-bK-YiQ" id="aYC-MY-Lli"/>
+                <outlet property="_tiemLabel" destination="Y1D-wQ-1HF" id="RMy-0z-ymn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,7 +63,7 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42E-Mc-jKA">
-                    <rect key="frame" x="118" y="404" width="84" height="30"/>
+                    <rect key="frame" x="123" y="442" width="84" height="30"/>
                     <state key="normal" title="选择美容师">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

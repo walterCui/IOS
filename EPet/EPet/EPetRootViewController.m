@@ -8,26 +8,45 @@
 
 #import "EPetRootViewController.h"
 #import "HomeViewController.h"
-#import "EPetSignupViewController.h"
+#import "EPetPlayerInfoViewController.h"
 #import "EPetMyOrderViewController.h"
 #import "EPetCustomerServiceViewController.h"
+#import "EPetSignupViewController.h"
+#import "EPetAppDelegate.h"
+#import "NetAccountVO.h"
 
 @interface EPetRootViewController ()
-
+@property NSInteger _tabbarIndex;
 @end
+
 
 @implementation EPetRootViewController
 
+static EPetRootViewController *_instance;
+
++(instancetype)instance
+{
+    return _instance;
+}
+
+-(instancetype) init
+{
+    self.isSignin = NO;
+    _instance = self;
+    return [super init];
+}
+
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    HomeViewController *homeView = [[HomeViewController alloc] init];
-    UINavigationController *home = [[UINavigationController alloc] initWithRootViewController:homeView];
-    //HomeViewController *home = [[HomeViewController alloc] init];
+    HomeViewController *home = [[HomeViewController alloc] init];
+    //UINavigationController *home = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    
     EPetMyOrderViewController *myOrder = [[EPetMyOrderViewController alloc] init];
-    EPetSignupViewController *signup = [[EPetSignupViewController alloc] init];
+    EPetPlayerInfoViewController *playerInfo = [[EPetPlayerInfoViewController alloc] init];
     EPetCustomerServiceViewController *cs = [[EPetCustomerServiceViewController alloc]init];
     //[cs setModalPresentationStyle: UIModalPresentationPopover];
-    self.viewControllers = [[NSArray alloc] initWithObjects:home, myOrder,signup, cs,nil];
+    self.viewControllers = [[NSArray alloc] initWithObjects:home, myOrder,playerInfo, cs,nil];
     
     //self.selectedIndex = 0;
     [self.tabBar setTintColor:[UIColor redColor]];
@@ -52,6 +71,79 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [EPetAppDelegate subcribeResponseHandle:requesCode::signin  target:self action:@selector(handleResponse:)];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [EPetAppDelegate unsubcribeResponseHandle:requesCode::signin];
+    [super viewWillDisappear:animated];
+}
+
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    if(viewController.tabBarItem.tag == 3)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"服务时间为09:00 － 18:00" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫",nil];
+        
+        [alert show];
+        return NO;
+    }
+    else if(viewController.tabBarItem.tag == 2 || viewController.tabBarItem.tag == 1)
+    {
+        if(self.isSignin)
+            return  YES;
+        else if(![EPetCookie instance].hasAccount)
+        {
+            EPetSignupViewController* s = [[EPetSignupViewController alloc] init:viewController.tabBarItem.tag];
+            [self.navigationController pushViewController:s animated:YES];
+            return  NO;
+        }
+        else
+        {
+            self._tabbarIndex = viewController.tabBarItem.tag;
+            NetFacade::GetInstance()->signin([EPetCookie instance].phoneNumber.UTF8String, [EPetCookie instance].pwd.UTF8String);
+        }
+    }
+    return YES;
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:10086"]];
+        UIWebView *phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+        [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneURL]];
+    }
+}
+
+-(void)handleResponse:(EPetNetData*)data
+{
+    if(data == NULL)
+        return;
+    AccountVO *vo = new AccountVO();
+    vo->deserialization(data.data, 0);
+    switch (data.code) {
+        case requesCode::signin:
+            if(vo->ReturnCode == 0)
+            {
+                self.selectedIndex = self._tabbarIndex;
+                self.isSignin = YES;
+            }
+            else
+            {
+                [[EPetCookie instance] clear];
+                EPetSignupViewController* s = [[EPetSignupViewController alloc] init:self._tabbarIndex];
+                [self.navigationController pushViewController:s animated:YES];
+            }
+            break;
+        default:
+            break;
+    }
+}
 /*
 #pragma mark - Navigation
 

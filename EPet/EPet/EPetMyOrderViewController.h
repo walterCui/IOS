@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EPetMyOrderViewController : UIViewController
+@interface EPetMyOrderViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @end
